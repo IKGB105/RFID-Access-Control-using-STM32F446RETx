@@ -1,0 +1,49 @@
+ARCHIVOS LIMPIOS - PROYECTO PY
+====================================
+
+ARCHIVOS A MANTENER (Nuevos - Librerías modulares):
+====================================================
+✓ main_clean.c       - Función main limpia y organizada
+✓ usart.c/h          - Todas las funciones UART
+✓ mifare.c/h         - Todas las operaciones MIFARE
+✓ conf_new.c/h       - Configuración del sistema (GPIO, UART, SPI, RCC)
+✓ rc522.c/h          - Interfaz hardware RC522 (sin cambios)
+
+ARCHIVOS A ELIMINAR (Antiguos - No se usan más):
+=================================================
+✗ main.c             - Reemplazado por main_clean.c
+✗ comusart.c         - Reemplazado por usart.c
+✗ comusart.h         - Reemplazado por usart.h
+✗ conf.c             - Reemplazado por conf_new.c
+✗ conf.h             - Reemplazado por conf_new.h
+
+PASOS PARA LIMPIAR EL PROYECTO:
+================================
+1. En Keil uVision, eliminar del proyecto:
+   - main.c
+   - comusart.c
+   - comusart.h
+   - conf.c
+   - conf.h
+
+2. Renombrar archivos limpios:
+   - main_clean.c -> main.c
+   - conf_new.c -> conf.c
+   - conf_new.h -> conf.h
+
+3. Agregar al proyecto (si no están):
+   - usart.c
+   - usart.h
+   - mifare.c
+   - mifare.h
+
+4. Compilar y verificar que no hay errores
+
+ESTRUCTURA FINAL:
+==================
+main.c              ← Lógica principal limpia
+├── conf.h          ← Configuración del sistema
+├── usart.h         ← Comunicación UART
+├── mifare.h        ← Operaciones MIFARE
+├── rc522.h         ← Hardware RC522
+└── comusart.c/.h   ← ELIMINAR
